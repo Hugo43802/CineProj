@@ -1,3 +1,22 @@
+'''
+1. Consulto el estado de la silla en sala
+2. selecciono las sillas
+'''
+import SalaCine as file_cine
+
+class Reserva: 
+    def __init__(self):
+        pass
+
+    def selc_sill():
+        pass
+    
+    def cancel_silla():
+        pass
+
+    def consult_silla():
+        pass
+
     # NUMRESERVA=0
     
     # def reservar(self):

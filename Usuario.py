@@ -16,7 +16,6 @@ class Usuario:
     def crear_reserva(self, num_sala, *posiciones):
         res = []
         for posicion in posiciones:
-            # try:
             mapa_sala = self.salas[num_sala].get_sala()
             if posicion <= len(mapa_sala):
                 silla = mapa_sala[posicion-1]
@@ -27,19 +26,17 @@ class Usuario:
                     self.num_reservas += 1
                 else:
                     print(f"La silla {posicion} ya está reservada")
-        
         return res
-            # except:
-            #     print(f"La {posicion} no existe")
 
     def cancelar_reserva(self):
         pass
 
-    def consultar_reserva(self, reserva):
+    def consultar_reserva(self):
+        lista_sillas = []
         for clave in self.reservas:
+            lista_sillas.append(self.reservas[clave]) 
+        print(f"{self.nombre} ha reservado las sillas: {lista_sillas}")
 
-        
-    
     def borrar_sala(self):
         pass
 
@@ -48,8 +45,10 @@ class Usuario:
 
 user = Usuario("Hugo")
 user.crear_sala(6,6)
-reserv = user.crear_reserva(0,2,8)
+reserv = user.crear_reserva(0,1,2,3)
 print(reserv)
-user.consultar_reserva(reserv)
+user.consultar_reserva()
+
+
 
 

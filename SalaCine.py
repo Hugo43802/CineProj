@@ -9,8 +9,10 @@ class SalaCine:
     def crear_sala(self):
         pos_silla=1
         for _ in range (1,self.filas+1):
+            letra_fila = chr(64+pos_silla)
             for _ in range(1, self.columnas+1):
-                self.mapa_sala.append(file_silla.Silla(pos_silla))
+                num_silla = f"{letra_fila}{pos_silla}"
+                self.mapa_sala.append(file_silla.Silla(num_silla))
                 pos_silla+=1
 
     def get_sala(self):

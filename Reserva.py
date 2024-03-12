@@ -8,7 +8,7 @@ class Reserva:
     def __init__(self):
         pass
 
-    def selc_sill():
+    def selc_silla():
         pass
     
     def cancel_silla():

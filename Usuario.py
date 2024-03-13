@@ -24,17 +24,26 @@ class Usuario:
                     res.append(self.num_reservas)
                     self.reservas[self.num_reservas] = silla.mostrar_numsilla()
                     self.num_reservas += 1
+                    
                 else:
                     print(f"La silla {posicion} ya está reservada")
+        print(f"¡{self.nombre} ha completado la reserva!")
         return res
 
-    def cancelar_reserva(self):
-        pass
+    def cancelar_reserva(self, *num_reservas):
+        for num_reserva in num_reservas:
+            if num_reserva in self.reservas:
+                del self.reservas[num_reserva]
+                print(f"La reserva {num_reserva} ha sido cancelada")
+            else:
+                print(f"No se encontró ninguna reserva con el número {num_reserva}")
+        print(f"Reservas restantes: {self.reservas}")
+
 
     def consultar_reserva(self):
         lista_sillas = []
-        for clave in self.reservas:
-            lista_sillas.append(self.reservas[clave]) 
+        for clave in self.reservas.values():
+            lista_sillas.append(clave)
         print(f"{self.nombre} ha reservado las sillas: {lista_sillas}")
 
     def borrar_sala(self):
@@ -45,9 +54,10 @@ class Usuario:
 
 user = Usuario("Hugo")
 user.crear_sala(6,6)
-reserv = user.crear_reserva(0,1,2,3)
+reserv = user.crear_reserva(0,1,2)
 print(reserv)
-user.consultar_reserva()
+#user.consultar_reserva()
+user.cancelar_reserva(2)
 
 
 

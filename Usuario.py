@@ -24,7 +24,6 @@ class Usuario:
                     res.append(self.num_reservas)
                     self.reservas[self.num_reservas] = silla.mostrar_numsilla()
                     self.num_reservas += 1
-                    
                 else:
                     print(f"La silla {posicion} ya está reservada")
         print(f"¡{self.nombre} ha completado la reserva!")
@@ -35,10 +34,12 @@ class Usuario:
             if num_reserva in self.reservas:
                 del self.reservas[num_reserva]
                 print(f"La reserva {num_reserva} ha sido cancelada")
+                mapa_sala = self.salas[0].get_sala()
+                for silla in mapa_sala:
+                    silla.cancelar_reserva()       
             else:
                 print(f"No se encontró ninguna reserva con el número {num_reserva}")
         print(f"Reservas restantes: {self.reservas}")
-
 
     def consultar_reserva(self):
         lista_sillas = []
@@ -52,13 +53,41 @@ class Usuario:
     def mostrar_salas(self):
         pass
 
-user = Usuario("Hugo")
-user.crear_sala(6,6)
-reserv = user.crear_reserva(0,1,2)
-print(reserv)
-#user.consultar_reserva()
-user.cancelar_reserva(2)
+# user = Usuario("Hugo")
+# user.crear_sala(2,2)
+# reserv = user.crear_reserva(0,1,2)
+# print(reserv)
+# user.consultar_reserva()
+# user.cancelar_reserva(0)
+# user.consultar_reserva()
 
+def main():
+    salir = False
 
+    while not salir:
+        print("\n1. Nombre admin")
+        print("2. Crear sala")
+        print("3. Crear reserva")
+        print("4. Consultar reserva")
+        print("5. Cancelar reserva")
+        print("6. Salir")
+
+        op = input("\nSeleccione una opción: ")
+        if op == "1":
+            nombre = input("Por favor digite su nombre: ")
+            user = Usuario(nombre)
+        elif op == "2":
+            fila = int(input("Ingrese el número de filas: "))
+            columna = int(input("Ingrse el número de columnas: "))
+            user.crear_sala(fila,columna)
+        elif op == "3":
+            num_sala = 0
+            sillas = int(input("Ingrese las posiciones de las sillas: "))
+            reserva = user.crear_reserva(num_sala, *sillas)
+        elif op == "4":
+            user.consultar_reserva()
+
+if __name__ == "__main__":
+    main()
 
 

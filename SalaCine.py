@@ -21,7 +21,8 @@ class SalaCine:
     def mostrarMapaSillas(self):
         for list_sillas in self.mapa_sala:
             for silla in list_sillas:
-                print(silla.mostrar_numsilla())
+                print(silla.mostrar_numsilla(), end="")
+            print()
 
 # cine = SalaCine(3,4)
 # cine.crear_sala()

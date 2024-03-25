@@ -61,14 +61,6 @@ class Usuario:
         for clave, valor in self.reservas.items():
             print(f"Número de reserva: {clave}, con la silla: {valor}")
 
-# user = Usuario("Hugo")
-# user.crear_sala(2,2)
-# reserv = user.crear_reserva(0,1,2)
-# print(reserv)
-# user.consultar_reserva()
-# user.cancelar_reserva(0)
-# user.consultar_reserva()
-
 def main():
     salir = False
 
@@ -97,10 +89,13 @@ def main():
             user.crear_reserva(num_sala, *sillas)
         elif op == "4":
             user.consultar_reserva()
+            user.salas[0].mostrarMapaSillas()
         elif op == "5":
             num_sala = 0
             reservas = input("Ingrese el (los) número(s) de la reserva: ").split()
             user.cancelar_reserva(num_sala, *reservas)
+        elif op == "6":
+            salir = True
 
 if __name__ == "__main__":
     main()

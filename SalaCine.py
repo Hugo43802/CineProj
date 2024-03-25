@@ -1,5 +1,5 @@
 '''
-La clase SalaCine representa la sala con un mapa de sillas 
+La clase SalaCine representa la sala con un mapa de silla 
 una sala con muchos objetos silla
 '''
 import Silla as file_silla
@@ -21,11 +21,14 @@ class SalaCine:
         return self.mapa_sala
     
     def mostrarMapaSillas(self):
-        for sillas in self.mapa_sala:
-                if sillas.consultar_reserva():
-                    print(f"[{sillas.mostrar_pos_silla()}]")
-                else:
-                    print(sillas.mostrar_pos_silla())
+        print("\nMapa de la Sala:")
+        for silla in self.mapa_sala:
+            if silla.consultar_reserva():
+                print(f"[{silla.mostrar_pos_silla()}]", end=" ")  # Silla reservada
+            else:
+                print(f"{silla.mostrar_pos_silla()}", end=" ")  # Silla libre
+        print()  # Nueva línea para la siguiente fila
+
 
 # cine = SalaCine(3,4)
 # cine.crear_sala()

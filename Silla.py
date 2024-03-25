@@ -1,7 +1,12 @@
+'''
+La clase silla representa el objeto silla en una sala de cine
+para los set se utilizará la reserva ya sea como true o false
+y los get devuelven el estado de la silla
+'''
 class Silla:
 
-    def __init__(self, num_Silla):
-        self.numSilla = num_Silla
+    def __init__(self, pos_Silla):
+        self.pos_Silla = pos_Silla
         self.reserva = False
     
     def reservar(self):
@@ -13,8 +18,8 @@ class Silla:
     def consultar_reserva(self):
         return self.reserva
     
-    def mostrar_numsilla(self):
-        return self.numSilla
+    def mostrar_pos_silla(self):
+        return self.pos_Silla
 
 
 # sillas=[Silla(i) for i in range(6)]

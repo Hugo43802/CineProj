@@ -1,3 +1,7 @@
+'''
+La clase SalaCine representa la sala con un mapa de sillas 
+una sala con muchos objetos silla
+'''
 import Silla as file_silla
 
 class SalaCine:
@@ -7,22 +11,21 @@ class SalaCine:
         self.mapa_sala = []
 
     def crear_sala(self):
-        pos_silla=1
-        for _ in range (1,self.filas+1):
-            letra_fila = chr(64+pos_silla)
-            for _ in range(1, self.columnas+1):
-                num_silla = f"{letra_fila}{pos_silla}"
-                self.mapa_sala.append(file_silla.Silla(num_silla))
-                pos_silla+=1
+        for cont_row in range (1,self.filas+1):
+            letra_fila = chr(64+cont_row)
+            for cont_col in range(1, self.columnas+1):
+                pos_silla = f"{letra_fila}{cont_col}"
+                self.mapa_sala.append(file_silla.Silla(pos_silla))
 
     def get_sala(self):
         return self.mapa_sala
     
     def mostrarMapaSillas(self):
-        for list_sillas in self.mapa_sala:
-            for silla in list_sillas:
-                print(silla.mostrar_numsilla(), end="")
-            print()
+        for sillas in self.mapa_sala:
+                if sillas.consultar_reserva():
+                    print(f"[{sillas.mostrar_pos_silla()}]")
+                else:
+                    print(sillas.mostrar_pos_silla())
 
 # cine = SalaCine(3,4)
 # cine.crear_sala()

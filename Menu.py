@@ -1,5 +1,7 @@
 import Usuario as file_usuario
-
+'''
+Clase que permite al usuario interactuar con el resto de clases
+'''
 class Menu:
     def __init__(self):
         self.usuario = None    
@@ -26,7 +28,7 @@ class Menu:
                 #Mostrar el mapa de la sala apenas se crea
                 self.usuario.salas[0].mostrarMapaSillas()
             elif op == "3":
-                print("RESERVA")
+                print("SE REALIZARÁ LA RESERVA")
                 num_sala = 0
                 sillas = input("Ingrese las posiciones de las sillas: ").split()
                 self.usuario.crear_reserva(num_sala, *sillas)

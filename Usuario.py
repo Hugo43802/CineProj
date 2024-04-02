@@ -5,6 +5,10 @@ import SalaCine as file_cine
 import Silla as file_silla
 
 class Usuario:
+    '''
+    En el constructor se inicializan los atributos que serán
+    utilizados en la clase Usuario.
+    '''
     def __init__(self, nombre):
         self.nombre = nombre
         self.reservas = {}
@@ -12,6 +16,9 @@ class Usuario:
         self.num_reservas = 0
     
     def crear_sala(self, filas, columnas):
+        '''
+        Del archivo SalaCine se crea una instancia osea un objeto
+        '''
         sala = file_cine.SalaCine(filas,columnas)
         sala.crear_sala()
         self.salas.append(sala)
@@ -39,8 +46,14 @@ class Usuario:
         return res
 
     def cancelar_reserva(self,sala, *num_reservas):
+        '''
+        Se cancela la reserva a partir del número de la sala
+        y de las reservas generadas, para este paso es necesario
+        que el usuario sepa el número de la reserva(s) a cancelar
+        '''
         for num_reserva in num_reservas:
             num_reserva = int(num_reserva)
+            # se converite el # de reserva en entero y se busca dentro de las keys del diccionario como lista
             if num_reserva in list(self.reservas.keys()):
                 #traigo la posicion que se va a eliminar de la silla
                 posicion = self.reservas[num_reserva]

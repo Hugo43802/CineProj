@@ -42,8 +42,16 @@ class Menu:
             elif op == "6":
                 salir = True
 def main():
+    '''
+    Se crea las instancia de la clase menú, mostrando 
+    la ejecución del método mostrar_menu
+    '''
     menu = Menu()
     menu.mostrar_menu()
-
+'''
+Esta instrucción permite generar que la ejecución del código sea
+única, entendiendo que al tener diferentes clases podrá fallar si 
+llama diferentes clases al mismo tiempo.
+'''
 if __name__ == "__main__":
     main()
